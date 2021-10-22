@@ -8,19 +8,19 @@ function draw(num, cnum) {
         cpos = cnum;
         clickcount = 1;
         cardlist[num].style.boxShadow = "0px 0px 5px 5px paleturquoise";
-        imgload(num, cnum)
+        imgload(num, cnum);
       } else if (clickcount == 1) {
         if (pos == num) {
           pos = null;
           cpos = null;
           clickcount = 0;
           cardlist[num].style.boxShadow = null;
-          defimgload(num)
+          defimgload(num);
         } else {
           if (cpos == cnum) {
             cardlist[pos].style.boxShadow = "0px 0px 5px 5px palegreen";
             cardlist[num].style.boxShadow = "0px 0px 5px 5px palegreen";
-            imgload(num, cnum)
+            imgload(num, cnum);
             arr[pos] = 1;
             arr[num] = 1;
             pos = null;
@@ -31,14 +31,14 @@ function draw(num, cnum) {
           } else {
             cardlist[pos].style.boxShadow = "0px 0px 5px 5px palevioletred";
             cardlist[num].style.boxShadow = "0px 0px 5px 5px palevioletred";
-            imgload(num, cnum)
+            imgload(num, cnum);
             p = pos;
             n = num;
             stopgame = 1;
             setTimeout(() => {
               rmsdw();
-              defimgload(p)
-              defimgload(n)
+              defimgload(p);
+              defimgload(n);
             }, 500);
             pos = null;
             cpos = null;
@@ -95,6 +95,9 @@ var cpos = null;
 var arr = new Array();
 
 window.onload = function () {
+  for (var i = 1; i < 7; i++) {
+    new Image().src = "./2dimage/" + i + ".png";
+  }
   cardlist = document.getElementsByClassName("card");
   mixcard();
   for (var i = 0; i < 12; i++) {
