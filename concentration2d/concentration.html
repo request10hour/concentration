@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>최애로 하는 신경쇠약</title>
+  </head>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+    body{
+      background-color: black;
+      user-select: none;
+    }
+    #fullcontent {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .card {
+      padding-top: 10px;
+      width: 32%;
+      border-style: solid;
+      border-color: #e4002b;
+      background-color: gray;
+      margin-bottom: 2%;
+      border-radius: 10px;
+      transition: 300ms;
+    }
+    .card:hover {
+      cursor: pointer;
+      background-color: white;
+      transition: 300ms;
+    }
+    #score{
+        border-style: solid;
+        border-color: #e4002b;
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 40px;
+        position: absolute;
+        right: 5%;
+        width: 30%;
+        display: flex;
+        justify-content: space-between;
+        background-color: gray;
+        font-size: 20px;
+        color: white;
+        text-shadow: 0px 0px 5px goldenrod;
+        font-family: 'Black Han Sans', sans-serif;
+    }
+    #maintitle{
+      font-size: 50px;
+      color: #e4002b;
+      font-family: 'Black Han Sans', sans-serif;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+  </style>
+  <body>
+    <div id="maintitle">신경쇠약</div>
+    <div id="fullcontent">
+      <canvas class="card" id="card1"></canvas>
+      <canvas class="card" id="card2"></canvas>
+      <canvas class="card" id="card3"></canvas>
+      <canvas class="card" id="card4"></canvas>
+      <canvas class="card" id="card5"></canvas>
+      <canvas class="card" id="card6"></canvas>
+      <canvas class="card" id="card7"></canvas>
+      <canvas class="card" id="card8"></canvas>
+      <canvas class="card" id="card9"></canvas>
+      <canvas class="card" id="card10"></canvas>
+      <canvas class="card" id="card11"></canvas>
+      <canvas class="card" id="card12"></canvas>
+    </div>
+    <div id="score">
+      <div>score</div>
+      <div id="point">0</div>
+    </div>
+    <script src="./concentration.js"></script>
+  </body>
+</html>
