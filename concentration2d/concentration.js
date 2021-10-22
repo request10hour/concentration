@@ -1,6 +1,7 @@
 function draw(num, cnum) {
+  imgload(num, cnum);
+  
   defimgload(num);
-
   cardlist[num].addEventListener("mousedown", function () {
     if (arr[num] == 0 && stopgame == 0) {
       if (clickcount == 0) {
@@ -95,9 +96,6 @@ var cpos = null;
 var arr = new Array();
 
 window.onload = function () {
-  for (var i = 1; i < 7; i++) {
-    new Image().src = "./2dimage/" + i + ".png";
-  }
   cardlist = document.getElementsByClassName("card");
   mixcard();
   for (var i = 0; i < 12; i++) {
