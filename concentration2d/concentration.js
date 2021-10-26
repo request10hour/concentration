@@ -25,8 +25,12 @@ function draw(num, cnum) {
             pos = null;
             cpos = null;
             clickcount = 0;
-            document.getElementById("point").textContent =
-              parseInt(document.getElementById("point").textContent) + 1;
+            point++;
+            console.log(point);
+            if (point == 6) {
+              startstop = 1;
+              success();
+            }
           } else {
             cardlist[pos].style.boxShadow = "0px 0px 5px 5px palevioletred";
             cardlist[num].style.boxShadow = "0px 0px 5px 5px palevioletred";
@@ -93,7 +97,13 @@ var pos = null;
 var cpos = null;
 var arr = new Array();
 
+var origintime;
+var startstop = 0;
+var point = 0;
+
 window.onload = function () {
+  origintime = Date.now();
+  loadtime();
   cardlist = document.getElementsByClassName("card");
   mixcard();
   for (var i = 0; i < 12; i++) {
@@ -107,7 +117,6 @@ window.onload = function () {
       arr[i] = 0;
     }
   }, 300);
-  
 };
 
 function mixcard() {
@@ -120,4 +129,25 @@ function mixcard() {
       }
     }
   }
+}
+
+function loadtime() {
+  setInterval(() => {
+    if (startstop == 0) {
+      var s = Date.now() - origintime;
+      document.getElementById("sec").textContent = Math.floor(s / 1000);
+      document.getElementById("milsec1").textContent = Math.floor(
+        (s / 1000 - Math.floor(s / 1000)) * 10
+      );
+      document.getElementById("milsec2").textContent = Math.floor(
+        (s / 100 - Math.floor(s / 100)) * 10
+      );
+    }
+  }, 10);
+}
+
+function success() {
+  var s = Date.now() - origintime;
+  document.getElementById("suctext").style.visibility = "visible"
+  document.getElementById("suctime").textContent = (s / 1000).toFixed(2) + " sec";
 }
