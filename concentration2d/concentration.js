@@ -91,7 +91,7 @@ function rmsdw() {
 }
 
 var h;
-var cardlist;
+var cardlist = document.getElementsByClassName("card");
 var clickcount = 0;
 var pos = null;
 var cpos = null;
@@ -101,10 +101,9 @@ var origintime;
 var startstop = 0;
 var point = 0;
 
-window.onload = function () {
-  origintime = Date.now();
-  loadtime();
-  cardlist = document.getElementsByClassName("card");
+window.onload = execute();
+
+function execute() {
   mixcard();
   for (var i = 0; i < 12; i++) {
     var cnum = cardlist[i].textContent;
@@ -117,6 +116,16 @@ window.onload = function () {
       arr[i] = 0;
     }
   }, 300);
+}
+
+document.getElementById("start").onclick = function () {
+  document.getElementById("hider").style.visibility = "hidden";
+  origintime = Date.now();
+  loadtime();
+};
+
+document.getElementById("restart").onclick = function () {
+  window.location.reload();
 };
 
 function mixcard() {
@@ -148,6 +157,7 @@ function loadtime() {
 
 function success() {
   var s = Date.now() - origintime;
-  document.getElementById("suctext").style.visibility = "visible"
-  document.getElementById("suctime").textContent = (s / 1000).toFixed(2) + " sec";
+  document.getElementById("suctext").style.visibility = "visible";
+  document.getElementById("suctime").textContent =
+    (s / 1000).toFixed(2) + " sec";
 }

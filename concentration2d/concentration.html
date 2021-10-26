@@ -7,10 +7,13 @@
     <title>최애로 하는 신경쇠약</title>
   </head>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
-    body{
+    @import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap");
+    body {
       background-color: black;
       user-select: none;
+    }
+    body::-webkit-scrollbar {
+      display: none;
     }
     #fullcontent {
       display: flex;
@@ -19,11 +22,11 @@
     }
     .card {
       padding-top: 10px;
-      width: 32%;
+      width: 30%;
       border-style: solid;
       border-color: #e4002b;
       background-color: gray;
-      margin-bottom: 2%;
+      margin-bottom: 5%;
       border-radius: 10px;
       transition: 300ms;
     }
@@ -32,37 +35,37 @@
       background-color: white;
       transition: 300ms;
     }
-    #score{
-        border-style: solid;
-        border-color: #e4002b;
-        border-radius: 10px;
-        padding: 20px;
-        margin-top: 40px;
-        position: absolute;
-        right: 5%;
-        width: 250px;
-        display: flex;
-        justify-content: space-between;
-        background-color: gray;
-        font-size: 30px;
-        color: white;
-        text-shadow: 0px 0px 5px goldenrod;
-        font-family: 'Black Han Sans', sans-serif;
+    #score {
+      border-style: solid;
+      border-color: #e4002b;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 40px;
+      position: absolute;
+      right: 5%;
+      width: 250px;
+      display: flex;
+      justify-content: space-between;
+      background-color: gray;
+      font-size: 30px;
+      color: white;
+      text-shadow: 0px 0px 5px goldenrod;
+      font-family: "Black Han Sans", sans-serif;
     }
-    #maintitle{
+    #maintitle {
       font-size: 50px;
       color: #e4002b;
-      font-family: 'Black Han Sans', sans-serif;
+      font-family: "Black Han Sans", sans-serif;
       margin-top: 15px;
       margin-bottom: 15px;
     }
     #suctext {
-      padding-top: 15%;
+      padding-top: 10%;
+      padding-bottom: 10%;
       position: fixed;
       left: 25%;
       top: 20%;
       width: 50%;
-      height: 30%;
       background-color: rgba(0, 0, 0, 70%);
       text-align: center;
       border-radius: 5px;
@@ -72,6 +75,43 @@
       font-size: 40px;
       font-weight: bold;
       visibility: hidden;
+    }
+    #hider {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+    }
+    #restart {
+      color: gray;
+    }
+    #restart:hover {
+      color: white;
+      cursor: pointer;
+      text-shadow: 0px 0px 5px goldenrod;
+    }
+    #start {
+      position: relative;
+      border-style: solid;
+      border-radius: 5px;
+      left: 25%;
+      width: 50%;
+      top: 45%;
+      text-align: center;
+      height: 50px;
+      line-height: 50px;
+      background-color: black;
+      border-color: #e4002b;
+      color: gray;
+      font-weight: bold;
+      font-size: 25px;
+    }
+    #start:hover {
+      color: white;
+      text-shadow: 0px 0px 5px goldenrod;
+      cursor: pointer;
     }
   </style>
   <body>
@@ -92,18 +132,23 @@
     </div>
     <div id="score">
       <div>TIME</div>
-      <div style="display: flex;">
-        <div class=timer id=sec>0</div>
+      <div style="display: flex">
+        <div class="timer" id="sec">0</div>
         <div>.</div>
-        <div class=timer id=milsec1>0</div>
-        <div class=timer id=milsec2>0</div>
+        <div class="timer" id="milsec1">0</div>
+        <div class="timer" id="milsec2">0</div>
         <div>&nbsp;sec</div>
       </div>
     </div>
     <div id="suctext">
       <div>성공!</div>
-      <br>
+      <br />
       <div id="suctime">n</div>
+      <br />
+      <div id="restart">재시작</div>
+    </div>
+    <div id="hider">
+      <div id="start">시작</div>
     </div>
     <script src="./concentration.js"></script>
   </body>
